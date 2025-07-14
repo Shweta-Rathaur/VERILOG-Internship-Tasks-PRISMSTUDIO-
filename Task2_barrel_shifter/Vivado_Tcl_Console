@@ -1,0 +1,12 @@
+I have implemented my code for barrel shifter on Vivado where i wrote the source code and testbench to check the working of the code.
+Here, I am attaching the Tcl console output for my code.
+
+
+Time=10000 | Right Rotate: in = 10110011, shift = 3 -> out = 01110110
+Time=20000 | Left  Rotate: in = 10110011, shift = 3 -> out = 10011101
+Time=30000 | Right Rotate: in = 11001100, shift = 2 -> out = 00110011
+Time=40000 | Left  Rotate: in = 11001100, shift = 2 -> out = 00110011
+$finish called at time : 40 ns : File "C:/Users/ayush/barallel_shifter/barallel_shifter.srcs/sim_1/new/testbench.v" Line 58
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'testbench_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:05 ; elapsed = 00:00:07 . Memory (MB): peak = 1194.301 ; gain = 8.219
