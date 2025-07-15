@@ -1,0 +1,23 @@
+I have implemented my code for barrel shifter on Vivado where i wrote the source code and testbench to check the working of the code.
+Here, I am attaching the Tcl console output for my code.
+
+
+  Time=0 | State Output -> Highway: 10, Cityroad: 00 | carCount: 0
+Time=20000 | State Output -> Highway: 10, Cityroad: 00 | carCount: 2
+Time=120000 | State Output -> Highway: 10, Cityroad: 00 | carCount: 5
+Time=125000 | State Output -> Highway: 01, Cityroad: 00 | carCount: 5
+Time=155000 | State Output -> Highway: 00, Cityroad: 10 | carCount: 5
+Time=170000 | State Output -> Highway: 00, Cityroad: 10 | carCount: 7
+Time=265000 | State Output -> Highway: 00, Cityroad: 01 | carCount: 7
+Time=295000 | State Output -> Highway: 10, Cityroad: 00 | carCount: 7
+Time=370000 | State Output -> Highway: 10, Cityroad: 00 | carCount: 1
+Time=470000 | State Output -> Highway: 10, Cityroad: 00 | carCount: 5
+Time=475000 | State Output -> Highway: 01, Cityroad: 00 | carCount: 5
+Time=505000 | State Output -> Highway: 00, Cityroad: 10 | carCount: 5
+Time=615000 | State Output -> Highway: 00, Cityroad: 01 | carCount: 5
+Time=645000 | State Output -> Highway: 10, Cityroad: 00 | carCount: 5
+Time=655000 | State Output -> Highway: 01, Cityroad: 00 | carCount: 5
+$finish called at time : 670 ns : File "C:/Users/ayush/Mealy_traffic/Mealy_traffic.srcs/sim_1/new/testbench.v" Line 81
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'testbench_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:03 ; elapsed = 00:00:05 . Memory (MB): peak = 1215.254 ; gain = 9.516
