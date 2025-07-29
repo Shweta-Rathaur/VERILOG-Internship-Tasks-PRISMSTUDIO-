@@ -49,4 +49,4 @@ This project implements a finite state machine (FSM) in Verilog to handle and co
 
 ---
 
-## 📂 File Structure
+
