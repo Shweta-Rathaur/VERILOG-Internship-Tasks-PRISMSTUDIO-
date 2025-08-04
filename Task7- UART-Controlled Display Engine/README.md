@@ -10,6 +10,29 @@ To integrate UART communication with command decoding, state-machine-based contr
 
 ---
 
+## ✨ Features
+
+- **UART-Based Command Interface**  
+  Receives ASCII commands via UART protocol with accurate timing (e.g., 115200 baud @ 50 MHz clock).
+
+- **Finite State Machine (FSM) Parsing**  
+  Uses a clean state-machine design to parse commands like `S1234`, `C`, and handle invalid entries.
+
+- **4-Digit 7-Segment Display Control**  
+  Displays dynamic 4-digit values using multiplexing logic with segment decoding.
+
+- **Error Handling with Timer**  
+  Automatically detects invalid commands and holds "Err" display using delay counters.
+
+- **Modular and Scalable Design**  
+  Cleanly separated UART, parser, display, and timing logic for better testability and future upgrades.
+
+- **Simulation-Ready Testbench**  
+  A well-structured testbench simulates UART input and display updates for functional verification.
+
+---
+
+
 ## 🧩 System Overview
 
 ### 🔧 Modules
@@ -72,28 +95,3 @@ The `testbench.v` file:
 
 ---
 
-
----
-
-
-## ✨ Features
-
-- **UART-Based Command Interface**  
-  Receives ASCII commands via UART protocol with accurate timing (e.g., 115200 baud @ 50 MHz clock).
-
-- **Finite State Machine (FSM) Parsing**  
-  Uses a clean state-machine design to parse commands like `S1234`, `C`, and handle invalid entries.
-
-- **4-Digit 7-Segment Display Control**  
-  Displays dynamic 4-digit values using multiplexing logic with segment decoding.
-
-- **Error Handling with Timer**  
-  Automatically detects invalid commands and holds "Err" display using delay counters.
-
-- **Modular and Scalable Design**  
-  Cleanly separated UART, parser, display, and timing logic for better testability and future upgrades.
-
-- **Simulation-Ready Testbench**  
-  A well-structured testbench simulates UART input and display updates for functional verification.
-
----
