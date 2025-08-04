@@ -12,7 +12,7 @@ module cmd_parser (
     reg [15:0] temp_val;
     reg [1:0] digit_count;
 
-    localparam IDLE = 0, CMD = 1, GET_DIGIT = 2, DONE = 3, ERR = 4;
+    localparam IDLE = 0, CMD = 1, GET_DIGIT = 2, ERR = 4;
 
     always @(posedge clk or posedge reset) begin
         if (reset) begin
@@ -29,32 +29,36 @@ module cmd_parser (
             if (rx_valid) begin
                 case (state)
                     IDLE: begin
-                        if (rx_data == "S")
+                        if (rx_data == "S") begin
                             state <= CMD;
-                        else if (rx_data == "C") begin
+                        end else if (rx_data == "C") begin
                             display_val <= 0;
                             update_display <= 1;
-                        end else
+                        end else begin
                             state <= ERR;
+                        end
                     end
                     CMD: begin
                         if (rx_data >= "0" && rx_data <= "9") begin
                             temp_val <= (rx_data - "0");
                             digit_count <= 1;
                             state <= GET_DIGIT;
-                        end else
+                        end else begin
                             state <= ERR;
+                        end
                     end
                     GET_DIGIT: begin
-                        if (rx_data >= "0" && rx_data <= "9" && digit_count < 4) begin
+                        if ((rx_data >= "0" && rx_data <= "9") && digit_count < 4) begin
                             temp_val <= temp_val * 10 + (rx_data - "0");
                             digit_count <= digit_count + 1;
-                        end else if (digit_count == 4) begin
-                            display_val <= temp_val;
-                            update_display <= 1;
-                            state <= IDLE;
-                        end else
+                            if (digit_count == 3) begin
+                                display_val <= temp_val * 10 + (rx_data - "0");
+                                update_display <= 1;
+                                state <= IDLE;
+                            end
+                        end else begin
                             state <= ERR;
+                        end
                     end
                     ERR: begin
                         show_error <= 1;
