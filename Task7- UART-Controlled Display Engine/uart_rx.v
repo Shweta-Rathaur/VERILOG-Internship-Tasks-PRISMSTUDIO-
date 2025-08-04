@@ -1,4 +1,5 @@
 `timescale 1ns / 1ps
+
 module uart_rx (
     input clk,
     input reset,
@@ -24,20 +25,20 @@ module uart_rx (
                 receiving <= 1;
                 clk_cnt <= 0;
                 bit_idx <= 0;
+                data_valid <= 0;
             end else if (receiving) begin
                 clk_cnt <= clk_cnt + 1;
                 if (clk_cnt == CLK_PER_BIT) begin
                     clk_cnt <= 0;
                     rx_shift[bit_idx] <= rx;
                     bit_idx <= bit_idx + 1;
+                    data_valid <= 0;
                     if (bit_idx == 9) begin
                         data_out <= rx_shift[8:1]; // 8-bit ASCII
                         data_valid <= 1;
                         receiving <= 0;
                     end
-                end else begin
-                    data_valid <= 0;
-                end
+                end 
             end else begin
                 data_valid <= 0;
             end
